@@ -4,3 +4,4 @@ google-auth-oauthlib==1.1.0
 google-auth-httplib2==0.1.1
 gspread==5.11.3
 gunicorn 
+oauth2client
