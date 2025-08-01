@@ -4,7 +4,7 @@ import random
 from datetime import datetime
 import os
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 from questions import question_bank
 
 app = Flask(__name__)
