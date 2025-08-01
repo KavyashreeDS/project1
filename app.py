@@ -22,7 +22,12 @@ def init_google_sheets():
         "https://www.googleapis.com/auth/drive.file",
         "https://www.googleapis.com/auth/drive"
     ]
-    creds = ServiceAccountCredentials.from_json_keyfile_name("final.json", scope)
+    # Load the JSON string from your Render env var and parse it
+    creds_json = os.environ['finalproject']
+    creds_dict = json.loads(creds_json)
+
+    # Create credentials from the dict instead of a filename
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
     sheet = client.open_by_key(SPREADSHEET_ID).sheet1
 
