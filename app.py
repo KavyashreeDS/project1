@@ -204,12 +204,10 @@ def progress():
                          user=user, 
                          user_results=user_results[:10], 
                          stats=stats)
-
-
 @app.route('/reset')
 def reset():
-    """Reset session and go back to landing page"""
     session.clear()
+    flash("Session reset. Please retry link access.", "warning")
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
