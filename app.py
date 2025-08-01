@@ -27,7 +27,8 @@ def init_google_sheets():
     creds_dict = json.loads(creds_json)
 
     # Create credentials from the dict instead of a filename
-    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+
+    creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
     client = gspread.authorize(creds)
     sheet = client.open_by_key(SPREADSHEET_ID).sheet1
 
