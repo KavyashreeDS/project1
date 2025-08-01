@@ -210,4 +210,8 @@ def reset():
     flash("Session reset. Please retry link access.", "warning")
     return redirect(url_for('index'))
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    sheet = init_sheet()
+    if sheet is None:
+        print("Error: Could not access spreadsheet. Exiting.")
+        exit(1)
+    app.run()
